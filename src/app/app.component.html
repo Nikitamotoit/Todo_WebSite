@@ -1,0 +1,21 @@
+<div class="container" style="background-color: #20BABD;">
+    <div class="row gy-5">
+        <h1 style="text-align: center; margin-top: 80px;">Мой список дел</h1>
+        <div>
+            <app-task
+              *ngFor="let iterTask of tasks"
+              [task]="iterTask"
+              (onDatePicked)="doSomething($event)"
+            ></app-task>
+            <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping">Дело</span>
+                <input type="text" class="form-control" placeholder="Введите дело" aria-label="Username" aria-describedby="addon-wrapping" [(ngModel)]="InValue" (keydown.enter)="InputTask()">
+            </div>
+        </div>
+        <div class="btn-group" role="group" aria-label="Basic mixed styles example" style="margin-bottom: 20px;">
+            <button type="button" class="btn btn-success" (click)="SaveTodo()">Сохранить</button>
+            <button type="button" class="btn btn-danger" (click)="ClearTodo()">Очистить</button>
+        </div>
+    </div>
+    <div class="row"></div>
+</div>
