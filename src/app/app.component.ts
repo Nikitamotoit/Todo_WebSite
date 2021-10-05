@@ -29,8 +29,10 @@ export class AppComponent implements OnInit{
   }
 
   InputTask() {
-    this.tasks.push({value: this.InValue, complete: false})
-    this.InValue = ""
+    if (this.InValue !== "") {
+      this.tasks.push({value: this.InValue, complete: false})
+      this.InValue = ""
+    }
   }
 
   ngOnInit() {
